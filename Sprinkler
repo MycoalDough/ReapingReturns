@@ -1,0 +1,110 @@
+public int uses = 20;
+
+public int config = 1;
+
+public TimeManager tm;
+
+//1 = every 8 days
+//2 = every 13 days
+//3 = every 20 days
+//4 = click to work
+
+public int timer;
+
+public void OnMouseDown()
+{
+  if(config == 4)
+  {
+    //instantiate a new water
+    uses--;
+  }
+}
+
+public void OnTriggerStay()
+{
+  if(Input.GetKeyDown(KeyCode.V)
+  {
+    config++;
+    if(config > 4)
+    {
+      config = 1;
+      changeTimer();
+    }
+  }
+}
+
+public void changeTimer()
+{
+  if(config == 1)
+  {
+    timer = 8;
+  }
+  else if(config == 2)
+  {
+    timer = 13;
+  }
+  else if(config == 3)
+  {
+    timer = 20;
+  }
+}
+
+public void Update()
+{
+  changeDB();
+  if(config == 1)
+  {
+    configOne();
+  }
+  else if(config == 2)
+  {
+    configTwo();
+  }
+    else if(config == 3)
+  {
+    configThree();
+  }
+  
+  if(uses <= 0)
+  {
+    Destroy(gameObject);
+  }
+}
+
+public void configOne()
+{
+  if(!DB && tm.getTime() % 8 == 0)
+  {
+    //shoot water
+    DB = true;
+    uses--;
+  }
+}
+
+public void configTwo()
+{
+  if(!DB && tm.getTime() % 13 == 0)
+  {
+    //shoot water
+    DB = true;
+    uses--;
+  }
+}
+
+public void configTwo()
+{
+  if(!DB && tm.getTime() % 20 == 0)
+  {
+    //shoot water
+    DB = true;
+    uses--;
+  }
+}
+
+public void changeDB()
+{
+  if(tm.GetTime() % 8 != 0 && tm.GetTime() % 13 != 0 && tm.GetTime() % 20 != 0)
+  {
+    DB = false;
+  }
+}
