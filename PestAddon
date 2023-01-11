@@ -1,0 +1,21 @@
+public bool pestGB;
+private int pestControl;
+
+public void Start()
+{
+  pestControl = Random.Range(5,11);
+}
+
+public void Update()
+{
+  if(tm.GetTime() % pestControl == 0 && ready (basically if the plant is ready))
+  {
+    pestGB = true;
+    
+  }
+}
+
+
+//player
+
+if(
